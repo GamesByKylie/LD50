@@ -23,6 +23,8 @@ public class Sisyphus : InteractableParent, IPointerDownHandler
         endPos = path.GetPosition(path.positionCount - 1);
 
         rect.position = startPos;
+
+        currentSpeed = initialSpeed;
     }
 
     private void Update()
@@ -49,7 +51,7 @@ public class Sisyphus : InteractableParent, IPointerDownHandler
                 }
 
                 rect.position = Vector3.Lerp(startPos, endPos, t);
-                t += Time.deltaTime * initialSpeed;
+                t += Time.deltaTime * currentSpeed;
             }
             else
             {

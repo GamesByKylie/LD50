@@ -12,8 +12,7 @@ public class InteractableParent : MonoBehaviour
 
     protected bool gameOver = false;
     protected RectTransform rect;
-
-    protected Vector3 previousMousePos;
+    protected float currentSpeed;
     
     protected void GameOver()
     {

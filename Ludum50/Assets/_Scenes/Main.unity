@@ -530,8 +530,9 @@ GameObject:
   m_Component:
   - component: {fileID: 458047850}
   - component: {fileID: 458047851}
+  - component: {fileID: 458047852}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: Tantalus Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -605,10 +606,37 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 100
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 458047852}
+        m_MethodName: OnSliderValueChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &458047852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 458047849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c23930efe9239e842b55ff1d953b5f36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialSpeed: 5
+  warningDistance: 10
+  gameOverDistance: 0
+  warningFX: {fileID: 506777490}
 --- !u!1 &479720720
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,6 +757,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53e3c8c2621122540b97cc4aec1c7516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &506777490 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3222236436365002718, guid: b14c8136c77d69046a9cbd953df90115,
+    type: 3}
+  m_PrefabInstance: {fileID: 367552445}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

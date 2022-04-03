@@ -14,7 +14,7 @@ public class InteractableParent : MonoBehaviour
     protected RectTransform rect;
     protected float currentSpeed;
     
-    protected void GameOver()
+    public void GameOver()
     {
         gameOver = true;
     }

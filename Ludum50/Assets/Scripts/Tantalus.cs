@@ -34,6 +34,7 @@ public class Tantalus : InteractableParent
 
             if (slide.value >= slide.maxValue)
             {
+                slide.interactable = false;
                 GameOver();
             }
         }

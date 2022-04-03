@@ -69,6 +69,10 @@ public class Sisyphus : InteractableParent, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        PushBackwards();
+        if (!gameOver)
+        {
+            PushBackwards();
+        }
+
     }
 }

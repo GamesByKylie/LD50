@@ -4,32 +4,39 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class Sisyphus : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerExitHandler
+public class Sisyphus : InteractableParent, IPointerDownHandler
 {
-    public Transform startPos;
-    public Transform endPos;
-    public float initialSpeed;
-    public float playerDragSpeed;
-    public float warningDistance = 10f;
-    public float loseDistance = 0.1f;
-    public GameObject warningFX;
+    //Mechanic - click to slide him back a bit
+    [Range(0f, 1f)]
+    public float pushBackAmount;
+    public LineRenderer path;
 
     private float t = 0;
-    private bool gameOver = false;
-    private bool isHeld = false;
+    private Vector3 startPos;
+    private Vector3 endPos;
 
     private void Start()
     {
-        transform.position = startPos.position;
+        rect = GetComponent<RectTransform>();
+
+        startPos = path.GetPosition(0);
+        endPos = path.GetPosition(path.positionCount - 1);
+
+        rect.position = startPos;
     }
 
     private void Update()
     {
-        if (!gameOver && !isHeld)
+        MoveObject();
+    }
+
+    private void MoveObject()
+    {
+        if (!gameOver)
         {
-            if (DistanceToEnd() > loseDistance)
+            if (Vector3.Distance(rect.position, endPos) > gameOverDistance)
             {
-                if (DistanceToEnd() < warningDistance)
+                if (Vector3.Distance(rect.position, endPos) < warningDistance)
                 {
                     warningFX.SetActive(true);
                 }
@@ -41,7 +48,7 @@ public class Sisyphus : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
                     }
                 }
 
-                transform.position = Vector3.Lerp(startPos.position, endPos.position, t);
+                rect.position = Vector3.Lerp(startPos, endPos, t);
                 t += Time.deltaTime * initialSpeed;
             }
             else
@@ -49,41 +56,17 @@ public class Sisyphus : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
                 GameOver();
             }
         }
-        else if (!gameOver && isHeld)
-        {
-            transform.position = Vector3.Lerp(startPos.position, endPos.position, t);
-            t -= Time.deltaTime * playerDragSpeed;
-        }
+    }
 
+    private void PushBackwards()
+    {
+        t -= pushBackAmount;
+        t = Mathf.Clamp(t, 0f, 1f);
+        rect.position = Vector3.Lerp(startPos, endPos, t);
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("being held");
-        isHeld = true;
+        PushBackwards();
     }
-
-    public void OnPointerUp(PointerEventData eventData)
-    {
-        Debug.Log("released");
-        isHeld = false;
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        Debug.Log("pointer left");
-        isHeld = false;
-    }
-
-    private float DistanceToEnd()
-    {
-        return Vector3.Distance(transform.position, endPos.position);
-    }
-
-    private void GameOver()
-    {
-        gameOver = true;
-        Debug.Log("Sisyphus has escaped!");
-    }
-
 }

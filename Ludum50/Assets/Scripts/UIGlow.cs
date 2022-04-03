@@ -28,8 +28,6 @@ public class UIGlow : MonoBehaviour
 
         currentAlpha = amplitude * Mathf.Sin(glowSpeed * Time.time) + verticalShift;
         SetAlphaColor(currentAlpha);
-
-        Debug.Log($"Shifted {verticalShift} up, amplitude {amplitude}");
     }
 
     private void OnEnable()

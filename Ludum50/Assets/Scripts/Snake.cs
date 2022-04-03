@@ -43,25 +43,42 @@ public class Snake : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPoi
     {
         if (!gameParent.IsGameOver)
         {
-            Vector3 dir;
-            if (direction < 0)
+            if (isHeld)
             {
-                dir = Input.mousePosition - transform.position;
-            }
-            else
-            {
-                dir = transform.position - Input.mousePosition;
-            }
+                Vector3 dir = -direction * (Input.mousePosition - transform.position);
 
-            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            if (direction < 0)
-            {
-                transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+                float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+
+                transform.rotation = Quaternion.AngleAxis(-direction * angle, direction * Vector3.back);
+                float z = transform.eulerAngles.z;
+
+                //You won't be dragging these forwards, so we only need to check for the minimum
+                if (minRotation > 0)
+                {
+                    if (maxRotation < 0)
+                    {
+                        Debug.Log($"{name} max rotation negative ({maxRotation}) | current rotation {z}");
+                        float normalizedMax = maxRotation + 360f;
+                        if (!(z > normalizedMax && z < 360f))
+                        {
+                            transform.eulerAngles = Vector3.forward * Mathf.Min(z, minRotation);
+                        }
+                    }
+                    else
+                    {
+                        Debug.Log($"{name} max rotation positive ({maxRotation}) | current rotation {z}");
+                        transform.eulerAngles = Vector3.forward * Mathf.Max(z, minRotation);
+                    }
+                }
+                else
+                {
+                    transform.eulerAngles = Vector3.forward * Mathf.Max(z, minRotation);
+                }
             }
-            else
-            {
-                transform.rotation = Quaternion.AngleAxis(-angle, Vector3.back);
-            }
+            
+
+            //transform.eulerAngles = new Vector3(0f, 0f, Mathf.Clamp(transform.eulerAngles.z, minRotation, maxRotation));
+
             //if (!isHeld)
             //{
             //    gameParent.ToggleWarning(Mathf.Abs(rect.eulerAngles.z - maxRotation) <= gameParent.warningDistance, ID);

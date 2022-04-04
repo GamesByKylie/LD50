@@ -992,7 +992,7 @@ Canvas:
   m_GameObject: {fileID: 479720720}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -1244,8 +1244,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf87db08bb60f35429cfe874f1607e8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialSpeed: 0.06
-  speedIncrease: 0.008
+  initialSpeed: 5
+  speedIncrease: 0.8
   warningDistance: 75
   gameOverDistance: 0.1
   warningFX: {fileID: 439683805}

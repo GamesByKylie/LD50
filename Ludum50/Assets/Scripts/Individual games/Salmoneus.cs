@@ -48,12 +48,10 @@ public class Salmoneus : InteractableParent
 
             if (sign == -1 && transform.eulerAngles.z < rightMaxAngle + warningDistance)
             {
-                Debug.Log($"Warning to the right: {transform.eulerAngles.z} < {rightMaxAngle + warningDistance}");
                 warningFX.SetActive(true);
             }
             else if (sign == -1)
             {
-                Debug.Log($"All good to the right: {transform.eulerAngles.z} >= {rightMaxAngle + warningDistance}");
                 warningFX.SetActive(false);
             }
 

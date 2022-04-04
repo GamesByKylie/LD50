@@ -574,8 +574,8 @@ MonoBehaviour:
   woundStartSize: 3
   birdStanding: {fileID: 21300000, guid: fe4350c39d3debd44ba235650b0ed4b1, type: 3}
   birdEating: {fileID: 21300000, guid: e581212239427f748ba2940c2f19af3a, type: 3}
-  spriteChangeTime: 0.15
-  expandPerClick: 0.075
+  spriteChangeTime: 0.25
+  expandPerClick: 0.08
 --- !u!114 &357096641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -903,9 +903,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c23930efe9239e842b55ff1d953b5f36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialSpeed: 1.5
-  speedIncrease: 0.3
-  warningDistance: 10
+  initialSpeed: 1
+  speedIncrease: 0.2
+  warningDistance: 15
   gameOverDistance: 0
   warningFX: {fileID: 506777490}
   gameOverFX: {fileID: 1477342205}
@@ -922,7 +922,6 @@ GameObject:
   - component: {fileID: 479720723}
   - component: {fileID: 479720722}
   - component: {fileID: 479720721}
-  - component: {fileID: 479720725}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1018,18 +1017,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &479720725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 479720720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53e3c8c2621122540b97cc4aec1c7516, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &491005162 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3222236434371412014, guid: b14c8136c77d69046a9cbd953df90115,
@@ -1048,8 +1035,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 557ec1012c522ca49add841da12742e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialSpeed: 1
-  speedIncrease: 0.1
+  initialSpeed: 1.5
+  speedIncrease: 0.3
   warningDistance: 15
   gameOverDistance: 0.1
   warningFX: {fileID: 1713765144}
@@ -1242,8 +1229,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf87db08bb60f35429cfe874f1607e8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialSpeed: 3
-  speedIncrease: 0.25
+  initialSpeed: 4.5
+  speedIncrease: 1
   warningDistance: 75
   gameOverDistance: 0.1
   warningFX: {fileID: 1454756106}
@@ -2038,8 +2025,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0e97bc3b0dce224e88af81a61a48571, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialSpeed: 0.01
-  speedIncrease: 0.003
+  initialSpeed: 0.008
+  speedIncrease: 0.002
   warningDistance: 100
   gameOverDistance: 0.1
   warningFX: {fileID: 1749733319}
@@ -2171,7 +2158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb33cdfb156116949ad687709237d0f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialSpeed: 1.7
+  initialSpeed: 1
   speedIncrease: 0.1
   warningDistance: 10
   gameOverDistance: 0.1
@@ -3262,7 +3249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialSpeed: 1
-  speedIncrease: 0.1
+  speedIncrease: 0.2
   warningDistance: 10
   gameOverDistance: 0
   warningFX: {fileID: 1710285004}

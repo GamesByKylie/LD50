@@ -37,12 +37,16 @@ public class GameController : MonoBehaviour
         }
 
         PlayerPrefs.SetFloat("final_time", timer);
+        Invoke("LoadGameOverScene", 0.1f);
+    }
+
+    private void LoadGameOverScene()
+    {
         SceneManager.LoadScene(2);
     }
 
     private void IncreaseAllDifficulty()
     {
-        Debug.Log("Increasing difficulty!");
         foreach (InteractableParent game in allMiniGames)
         {
             game.IncreaseDecaySpeed();
@@ -51,7 +55,12 @@ public class GameController : MonoBehaviour
 
     private void UpdateTimerText()
     {
-        int seconds = Mathf.FloorToInt(timer);
+        timerText.text = TimeText(timer);
+    }
+
+    public static string TimeText(float time)
+    {
+        int seconds = Mathf.FloorToInt(time);
         int minutes = 0;
         if (seconds >= 60)
         {
@@ -62,6 +71,6 @@ public class GameController : MonoBehaviour
         string secondsText = seconds < 10 ? "0" + seconds : "" + seconds;
         string minutesText = minutes < 10 ? "0" + minutes : "" + minutes;
 
-        timerText.text = minutesText + ":" + secondsText;
+        return minutesText + ":" + secondsText;
     }
 }

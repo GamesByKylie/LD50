@@ -46,12 +46,14 @@ public class Salmoneus : InteractableParent
                 warningFX.SetActive(false);
             }
 
-            if (sign == -1 && transform.eulerAngles.z < rightMaxAngle - warningDistance)
+            if (sign == -1 && transform.eulerAngles.z < rightMaxAngle + warningDistance)
             {
+                Debug.Log($"Warning to the right: {transform.eulerAngles.z} < {rightMaxAngle + warningDistance}");
                 warningFX.SetActive(true);
             }
             else if (sign == -1)
             {
+                Debug.Log($"All good to the right: {transform.eulerAngles.z} >= {rightMaxAngle + warningDistance}");
                 warningFX.SetActive(false);
             }
 
@@ -70,7 +72,7 @@ public class Salmoneus : InteractableParent
 
     public void Rotate(int sign)
     {
-        transform.eulerAngles += Vector3.forward * sign * rotateAmount;
+        transform.eulerAngles += Vector3.forward * sign * (rotateAmount + (decaySpeed - initialSpeed));
     }
 
     private bool LeftToCenter(float leftMax)

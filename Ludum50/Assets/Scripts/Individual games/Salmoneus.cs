@@ -37,13 +37,31 @@ public class Salmoneus : InteractableParent
                 }
             }
 
+            if (sign == 1 && transform.eulerAngles.z > leftMaxAngle - warningDistance)
+            {
+                warningFX.SetActive(true);
+            }
+            else if (sign == 1)
+            {
+                warningFX.SetActive(false);
+            }
+
+            if (sign == -1 && transform.eulerAngles.z < rightMaxAngle - warningDistance)
+            {
+                warningFX.SetActive(true);
+            }
+            else if (sign == -1)
+            {
+                warningFX.SetActive(false);
+            }
+
             transform.eulerAngles += Vector3.forward * sign * decaySpeed * Time.deltaTime;
 
-            if (sign == 1 && transform.eulerAngles.z > leftMaxAngle + gameOverDistance)
+            if (sign == 1 && transform.eulerAngles.z > leftMaxAngle)
             {
                 GameOver();
             }
-            if (sign == -1 && transform.eulerAngles.z < rightMaxAngle + gameOverDistance)
+            else if (sign == -1 && transform.eulerAngles.z < rightMaxAngle)
             {
                 GameOver();
             }

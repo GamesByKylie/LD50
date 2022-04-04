@@ -79,7 +79,6 @@ public class Snake : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
                         if (maxRotation < 0)
                         {
                             float normalizedMax = maxRotation + 360f;
-                            Debug.Log(z);
                             if (z < normalizedMax)
                             {
                                 transform.eulerAngles = Vector3.forward * Mathf.Min(z, minRotation);

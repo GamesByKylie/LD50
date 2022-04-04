@@ -34,7 +34,6 @@ public class Ixion : InteractableParent, IPointerDownHandler, IPointerUpHandler
         {
             if (isHeld && (Input.mousePosition.x - prevMousePos.x) > 0)
             {
-                Debug.Log("Being dragged to the left");
                 currentRotSpeed = maxRotSpeed;
             }
 

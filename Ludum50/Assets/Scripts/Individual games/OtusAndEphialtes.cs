@@ -33,12 +33,4 @@ public class OtusAndEphialtes : InteractableParent
             return decaySpeed;
         }
     }
-
-    public bool IsGameOver
-    {
-        get
-        {
-            return gameOver;
-        }
-    }
 }

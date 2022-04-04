@@ -7,6 +7,8 @@ public class Salmoneus : InteractableParent
     public float leftMaxAngle;
     public float rightMaxAngle;
 
+    public float rotateAmount;
+
     private void Start()
     {
         currentSpeed = initialSpeed;
@@ -46,6 +48,11 @@ public class Salmoneus : InteractableParent
                 GameOver();
             }
         }
+    }
+
+    public void Rotate(int sign)
+    {
+        transform.eulerAngles += Vector3.forward * sign * rotateAmount;
     }
 
     private bool LeftToCenter(float leftMax)

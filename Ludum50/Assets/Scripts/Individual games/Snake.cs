@@ -58,11 +58,12 @@ public class Snake : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             }
             else
             {
+                //Look at mouse
                 float previousAngle = transform.eulerAngles.z;
 
                 Vector3 dir = -direction * (Input.mousePosition - transform.position);
                 float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-                transform.rotation = Quaternion.AngleAxis(-direction * angle, direction * Vector3.back);
+                transform.rotation = Quaternion.AngleAxis(angle, direction * Vector3.back);
 
                 float z = transform.eulerAngles.z;
 

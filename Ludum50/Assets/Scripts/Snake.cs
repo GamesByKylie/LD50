@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Snake : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerExitHandler
+public class Snake : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     public int ID;
     public float minRotation;
@@ -18,12 +18,9 @@ public class Snake : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPoi
     public void OnPointerDown(PointerEventData eventData)
     {
         isHeld = true;
+        transform.SetAsLastSibling();
     }
 
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        isHeld = false;
-    }
 
     public void OnPointerUp(PointerEventData eventData)
     {

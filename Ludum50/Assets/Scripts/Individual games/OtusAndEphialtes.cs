@@ -9,7 +9,7 @@ public class OtusAndEphialtes : InteractableParent
 
     private void Start()
     {
-        currentSpeed = initialSpeed;
+        decaySpeed = initialSpeed;
     }
 
     public void ToggleWarning(bool toggle, int ID)
@@ -30,7 +30,7 @@ public class OtusAndEphialtes : InteractableParent
     {
         get
         {
-            return currentSpeed;
+            return decaySpeed;
         }
     }
 

@@ -13,14 +13,14 @@ public class Tantalus : InteractableParent
     {
         slide = GetComponent<Slider>();
         slide.value = slide.minValue;
-        currentSpeed = initialSpeed;
+        decaySpeed = initialSpeed;
     }
 
     private void Update()
     {
         if (!gameOver)
         {
-            slide.SetValueWithoutNotify(slide.value + Time.deltaTime * currentSpeed);
+            slide.SetValueWithoutNotify(slide.value + Time.deltaTime * decaySpeed);
             previousValue = slide.value;
 
             if (slide.value >= slide.maxValue - warningDistance)

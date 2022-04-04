@@ -17,7 +17,7 @@ public class Ocnus : InteractableParent
     {
         slide = GetComponent<Slider>();
         rope.anchoredPosition = ropeCutoffPoint;
-        currentSpeed = initialSpeed;
+        decaySpeed = initialSpeed;
         nextValue = slide.maxValue;
     }
 
@@ -36,7 +36,7 @@ public class Ocnus : InteractableParent
                 warningFX.SetActive(false);
             }
 
-            rope.position -= Vector3.up * currentSpeed * Time.deltaTime;
+            rope.position -= Vector3.up * decaySpeed * Time.deltaTime;
 
             if (rope.anchoredPosition.y <= gameOverDistance)
             {

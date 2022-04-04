@@ -32,7 +32,7 @@ public class Danaids : InteractableParent, IPointerDownHandler, IPointerUpHandle
 
     void Start()
     {
-        currentSpeed = initialSpeed;
+        decaySpeed = initialSpeed;
         slide.value = slide.minValue;
         waterPour.SetActive(false);
     }
@@ -43,7 +43,7 @@ public class Danaids : InteractableParent, IPointerDownHandler, IPointerUpHandle
         {
             if (!isHeld)
             {
-                slide.value += Time.deltaTime * currentSpeed;
+                slide.value += Time.deltaTime * decaySpeed;
 
                 if (slide.value >= slide.maxValue - warningDistance)
                 {

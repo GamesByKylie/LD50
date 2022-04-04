@@ -31,7 +31,7 @@ public class Tityos : InteractableParent, IPointerClickHandler
 
     private void Start()
     {
-        currentSpeed = initialSpeed;
+        decaySpeed = initialSpeed;
         img = GetComponent<Image>();
         img.sprite = birdStanding;
         wound.localScale = Vector2.one * woundStartSize;
@@ -62,7 +62,7 @@ public class Tityos : InteractableParent, IPointerClickHandler
                 }
             }
 
-            wound.localScale -= Vector3.one * currentSpeed * Time.deltaTime;
+            wound.localScale -= Vector3.one * decaySpeed * Time.deltaTime;
 
             if (wound.localScale.x <= gameOverDistance)
             {

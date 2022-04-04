@@ -12,7 +12,7 @@ public class InteractableParent : MonoBehaviour
 
     protected bool gameOver = false;
     protected RectTransform rect;
-    protected float currentSpeed;
+    protected float decaySpeed;
     
     public void GameOver()
     {

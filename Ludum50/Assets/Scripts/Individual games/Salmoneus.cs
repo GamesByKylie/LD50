@@ -11,7 +11,7 @@ public class Salmoneus : InteractableParent
 
     private void Start()
     {
-        currentSpeed = initialSpeed;
+        decaySpeed = initialSpeed;
     }
 
     private void Update()
@@ -37,7 +37,7 @@ public class Salmoneus : InteractableParent
                 }
             }
 
-            transform.eulerAngles += Vector3.forward * sign * currentSpeed * Time.deltaTime;
+            transform.eulerAngles += Vector3.forward * sign * decaySpeed * Time.deltaTime;
 
             if (sign == 1 && transform.eulerAngles.z > leftMaxAngle + gameOverDistance)
             {

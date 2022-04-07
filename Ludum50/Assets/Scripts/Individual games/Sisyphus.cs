@@ -9,9 +9,11 @@ public class Sisyphus : InteractableParent, IPointerDownHandler
     //Mechanic - click to slide him back a bit
     [Range(0f, 1f)]
     public float pushBackAmount;
-    public LineRenderer path;
+    public Transform startPoint;
+    public Transform endPoint;
 
     private float t = 0;
+
     private Vector3 startPos;
     private Vector3 endPos;
 
@@ -19,8 +21,8 @@ public class Sisyphus : InteractableParent, IPointerDownHandler
     {
         rect = GetComponent<RectTransform>();
 
-        startPos = path.GetPosition(0);
-        endPos = path.GetPosition(path.positionCount - 1);
+        startPos = startPoint.position;
+        endPos = endPoint.position;
 
         rect.position = startPos;
 
